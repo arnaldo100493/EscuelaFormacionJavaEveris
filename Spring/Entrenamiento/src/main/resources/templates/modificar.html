@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head th:replace="layout/plantilla :: head">
+        <title>Datos de la Persona</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <h1>Datos de la Persona</h1>
+        <a th:href="@{/}">Regresar</a>
+        <br/>	
+        <form th:action="@{/guardar}" method="post" th:object="${persona}">
+            <table border="1" class="table table-sm table-dark">
+                <tr>
+                    <td><input type="hidden" name="idPersona" th:field="*{idPersona}"/></td> 
+                </tr>
+                <tr>
+                    <td><label for="nombre">Nombre:</label></td>
+                    <td><input type="text" name="nombre" th:field="*{nombre}"/></td>
+                </tr>
+                <tr>
+                    <td><label for="apellido">Apellido:</label></td>
+                    <td><input type="text" name="apellido" th:field="*{apellido}"/></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" name="email" th:field="*{email}"/></td>
+                </tr>
+                <tr>
+                    <td> <label for="telefono">Teléfono:</label></td>
+                    <td><input type="tel" name="telefono" th:field="*{telefono}"/></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="guardar" value="Guardar"/></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+

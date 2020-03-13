@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head th:replace="layout/plantilla :: head">
+        <title>Datos del Producto</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <h1>Datos del Producto</h1>
+        <a th:href="@{/}">Regresar</a>
+        <br/>	
+        <form th:action="@{/guardarp}" method="post" th:object="${producto}">
+            <table border="1" class="table table-sm table-dark">
+                <tr>
+                    <td><input type="hidden" name="idProducto" th:field="*{idProducto}"/></td> 
+                </tr>
+                <tr>
+                    <td><label for="nombre">Nombre:</label></td>
+                    <td><input type="text" name="nombre" th:field="*{nombre}"/></td>
+                </tr>
+                <tr>
+                    <td><label for="descripcion">Descripcion:</label></td>
+                    <td><input type="text" name="descripcion" th:field="*{descripcion}"/></td>
+                </tr>
+                <tr>
+                   <td><input type="submit" name="guardar" value="Guardar"/></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
